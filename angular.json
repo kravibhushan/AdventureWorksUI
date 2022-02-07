@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "96d626bf-e75b-4e4f-b4c3-6c5e79dcd0e7"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -27,8 +30,10 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ag-grid-community/dist/styles/ag-grid.css",
+              "node_modules/ag-grid-community/dist/styles/ag-theme-balham.css",
               "src/styles.css"
-            ],
+          ],
             "scripts": []
           },
           "configurations": {
