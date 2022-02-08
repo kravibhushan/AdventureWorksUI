@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { MasterComponent } from './master/master.component';
 
 const routes: Routes = [
-  { path:  'employee', component:  EmployeeComponent}
+  { path: 'employee', component: EmployeeComponent },
+  { path: 'master', component: MasterComponent },
+  { path: 'dashboard', component: DashboardComponent }
 ];
 
 @NgModule({

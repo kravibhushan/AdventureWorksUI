@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { EmployeeComponent } from './employee/employee.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MasterComponent } from './master/master.component';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
-    DashboardComponent
+    DashboardComponent,
+    MasterComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
