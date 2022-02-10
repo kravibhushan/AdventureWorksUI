@@ -12,7 +12,8 @@ export class EmployeeComponent implements OnInit {
   public gridApi: any;
   public gridColumnApi: any;
   public columnDefs;
-
+  public totalFakePeron:number=1000;
+  
   title = 'Employee List';
   
   rowData: any;
@@ -34,10 +35,6 @@ export class EmployeeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.rowData = this.employeeServ.gtAllEmployee().subscribe((data) => {
-      this.rowData = data;
-      console.log(this.rowData);
-    });
   }
 
   onGridReady(params: any) {

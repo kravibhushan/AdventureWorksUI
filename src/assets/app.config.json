@@ -1,5 +1,5 @@
 {
     "adventureWorksURL": "http://local.adventureworks.api/",
     "authURL": "",
-    "environmentConst": ""
+    "environmentValue": "Development"
 }

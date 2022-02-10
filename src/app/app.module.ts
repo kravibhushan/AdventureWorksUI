@@ -11,6 +11,7 @@ import { MasterComponent } from './master/master.component';
 import { NavComponent } from './nav/nav.component';
 import { EmployeeService } from './services/employee.service';
 import { DashboardService } from './services/dashboard.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { DashboardService } from './services/dashboard.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     AgGridModule.withComponents([])
