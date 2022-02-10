@@ -9,6 +9,8 @@ import { EmployeeComponent } from './employee/employee.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MasterComponent } from './master/master.component';
 import { NavComponent } from './nav/nav.component';
+import { EmployeeService } from './services/employee.service';
+import { DashboardService } from './services/dashboard.service';
 
 
 @NgModule({
@@ -25,7 +27,7 @@ import { NavComponent } from './nav/nav.component';
     HttpClientModule,
     AgGridModule.withComponents([])
   ],
-  providers: [],
+  providers: [EmployeeService,DashboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
