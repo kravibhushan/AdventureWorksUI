@@ -15,7 +15,7 @@ export class EmployeeComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.rowData = this.http.get("https://localhost:7291/Person");
+    this.rowData = this.http.get("http://local.adventureworks.api/Person");
   }
 
   title = 'AdventureWorksUI';
