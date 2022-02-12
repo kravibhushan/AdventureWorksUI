@@ -12,10 +12,10 @@ export class EmployeeComponent implements OnInit {
   public gridApi: any;
   public gridColumnApi: any;
   public columnDefs;
-  public totalFakePeron:number=1000;
-  
+  public peopleCount: number = 0;
+
   title = 'Employee List';
-  
+
   rowData: any;
   constructor(private employeeServ: EmployeeService) {
     this.columnDefs = [
@@ -40,7 +40,8 @@ export class EmployeeComponent implements OnInit {
   onGridReady(params: any) {
     this.gridApi = params.api;
     this.gridColumnApi = params.ColumnApi;
-    this.employeeServ.gtAllEmployee().subscribe(data=>{
+    this.employeeServ.gtAllEmployee().subscribe(data => {
+      this.peopleCount = (data as any[]).length;
       params.api.setRowData(data);
     });
   }

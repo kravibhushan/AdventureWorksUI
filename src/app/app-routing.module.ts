@@ -7,7 +7,8 @@ import { MasterComponent } from './master/master.component';
 const routes: Routes = [
   { path: 'employee', component: EmployeeComponent },
   { path: 'master', component: MasterComponent },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'product', loadChildren: () => import('./product/product.module').then(m => m.ProductModule) }
 ];
 
 @NgModule({
