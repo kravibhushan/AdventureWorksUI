@@ -9,13 +9,13 @@ import { AgGridModule } from 'ag-grid-angular';
 import { EmployeeComponent } from './employee/employee.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MasterComponent } from './master/master.component';
-import { NavComponent } from './nav/nav.component';
+import { NavMainComponent } from './nav-main/nav-main.component';
 import { EmployeeService } from './services/employee.service';
 import { DashboardService } from './services/dashboard.service';
 import { FormsModule } from '@angular/forms';
 
 import { DropdownModule } from 'primeng/dropdown';
-import {MultiSelectModule} from 'primeng/multiselect';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import {MultiSelectModule} from 'primeng/multiselect';
     EmployeeComponent,
     DashboardComponent,
     MasterComponent,
-    NavComponent
+    NavMainComponent
   ],
   imports: [
     BrowserModule,
