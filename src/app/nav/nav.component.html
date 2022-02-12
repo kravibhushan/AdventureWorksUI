@@ -107,19 +107,18 @@
     <div class="scroll-sidebar">
       <nav class="sidebar-nav">
         <ul id="sidebarnav" class="pt-4">
-          <li class="sidebar-item">
-            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/dashboard" aria-expanded="false"><i
-                class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a>
+          <li class="sidebar-item" routerLink="/dashboard" routerLinkActive="selected">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false">
+              <i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a>
           </li>
-          <li class="sidebar-item">
-            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/employee" aria-expanded="false"><i
-                class="mdi mdi-human-greeting"></i><span class="hide-menu">Employee</span></a>
+          <li class="sidebar-item" routerLink="/employee" routerLinkActive="selected">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false">
+              <i class="mdi mdi-human-greeting"></i><span class="hide-menu">Employee</span></a>
           </li>
-          <li class="sidebar-item">
-            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/master" routerLinkActive="active"><i
-                class="mdi mdi-pharmacy"></i>Master</a>
+          <li class="sidebar-item" routerLink="/master" routerLinkActive="selected">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link">
+              <i class="mdi mdi-pharmacy"></i>Master</a>
           </li>
-
           <li class="sidebar-item">
             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i
                 class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a>
