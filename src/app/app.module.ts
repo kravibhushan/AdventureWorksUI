@@ -15,7 +15,7 @@ import { DashboardService } from './services/dashboard.service';
 import { FormsModule } from '@angular/forms';
 
 import { DropdownModule } from 'primeng/dropdown';
-import {MultiSelectModule} from 'primeng/multiselect';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 
 @NgModule({
