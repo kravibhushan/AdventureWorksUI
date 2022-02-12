@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-master',
   templateUrl: './master.component.html',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class MasterComponent implements OnInit {
 
   public cities: City[] = [];
-  public selectedCityCode: string = "";
+  public selectedCities: string = "";
 
   constructor() {
     this.cities = [
