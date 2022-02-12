@@ -4,6 +4,7 @@ import { ViewproductComponent } from './viewproduct/viewproduct.component';
 import { CreateproductComponent } from './createproduct/createproduct.component';
 import { ProductRoutingModule } from './product-routing.module';
 import { ProductsComponent } from './products/products.component';
+import { NavProductComponent } from './nav-product/nav-product.component';
 
 
 
@@ -11,7 +12,8 @@ import { ProductsComponent } from './products/products.component';
   declarations: [
     ViewproductComponent,
     CreateproductComponent,
-    ProductsComponent
+    ProductsComponent,
+    NavProductComponent
   ],
   imports: [
     CommonModule,
