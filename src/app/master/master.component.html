@@ -9,7 +9,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            Test Count {{testCount}}
+            <p-dropdown [options]="cities" [(ngModel)]="selectedCityCode" optionLabel="name"></p-dropdown>
         </div>
     </div>
 </div>

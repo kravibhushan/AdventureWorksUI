@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Dashboard } from '../models/dashboard';
-import { DashboardService } from '../services/dashboard.service';
 
 @Component({
   selector: 'app-master',
@@ -9,18 +7,25 @@ import { DashboardService } from '../services/dashboard.service';
 })
 export class MasterComponent implements OnInit {
 
-  public dashboardData: Dashboard = new Dashboard();
-  public testCount: number = 100;
+  public cities: City[] = [];
+  public selectedCityCode: string = "";
 
-  constructor(private dashboardServ: DashboardService) {
-    this.testCount = 500;
+  constructor() {
+    this.cities = [
+      { name: 'New York', code: 'NY' },
+      { name: 'Rome', code: 'RM' },
+      { name: 'London', code: 'LDN' },
+      { name: 'Istanbul', code: 'IST' },
+      { name: 'Paris', code: 'PRS' }
+    ];
   }
 
   ngOnInit(): void {
-    this.dashboardServ.getDashboardData().subscribe((resp) => {
-      this.dashboardData = resp;
-      console.log(this.dashboardData);
-    });
   }
 
+}
+
+interface City {
+  name: string,
+  code: string
 }

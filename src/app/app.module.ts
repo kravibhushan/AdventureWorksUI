@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { AgGridModule } from 'ag-grid-angular';
@@ -12,6 +13,8 @@ import { NavComponent } from './nav/nav.component';
 import { EmployeeService } from './services/employee.service';
 import { DashboardService } from './services/dashboard.service';
 import { FormsModule } from '@angular/forms';
+
+import { DropdownModule } from 'primeng/dropdown';
 
 
 @NgModule({
@@ -27,9 +30,11 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    AgGridModule.withComponents([])
+    BrowserAnimationsModule,
+    AgGridModule.withComponents([]),
+    DropdownModule
   ],
-  providers: [EmployeeService,DashboardService],
+  providers: [EmployeeService, DashboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
