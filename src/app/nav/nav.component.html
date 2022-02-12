@@ -17,8 +17,7 @@
             <img src="../assets/images/logo-icon.png" alt="homepage" class="light-logo" width="25" />
           </b>
           <span class="logo-text ms-2">
-
-            <img src="../assets/images/logo-text.png" alt="homepage" class="light-logo" />
+            AdventureWorks
           </span>
         </a>
         <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
@@ -108,39 +107,37 @@
     <div class="scroll-sidebar">
       <nav class="sidebar-nav">
         <ul id="sidebarnav" class="pt-4">
-          <li class="sidebar-item">
-            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/dashboard"
-              aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a>
+          <li class="sidebar-item" routerLink="/dashboard" routerLinkActive="selected">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false">
+              <i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a>
           </li>
-          <li class="sidebar-item">
-            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/employee" aria-expanded="false"><i
-                class="mdi mdi-chart-bar"></i><span class="hide-menu">Employee</span></a>
+          <li class="sidebar-item" routerLink="/employee" routerLinkActive="selected">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false">
+              <i class="mdi mdi-human-greeting"></i><span class="hide-menu">Employee</span></a>
           </li>
-          <li class="sidebar-item">
-            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/master"
-              routerLinkActive="active">Master</a>
+          <li class="sidebar-item" routerLink="/master" routerLinkActive="selected">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link">
+              <i class="mdi mdi-pharmacy"></i>Master</a>
           </li>
-
-          <li class="sidebar-item">
-            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i
-                class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a>
+          <li class="sidebar-item" routerLink="/charts" routerLinkActive="selected">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link">
+              <i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a>
           </li>
-          <li class="sidebar-item">
-            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i
-                class="mdi mdi-chart-bubble"></i><span class="hide-menu">Widgets</span></a>
+          <li class="sidebar-item" routerLink="/widgets" routerLinkActive="selected">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link">
+              <i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Widgets</span></a>
           </li>
-          <li class="sidebar-item">
-            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html" aria-expanded="false"><i
-                class="mdi mdi-border-inside"></i><span class="hide-menu">Tables</span></a>
+          <li class="sidebar-item" routerLink="/tables" routerLinkActive="selected">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link">
+              <i class="mdi mdi-border-inside"></i><span class="hide-menu">Tables</span></a>
           </li>
-          <li class="sidebar-item">
-            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="grid.html" aria-expanded="false"><i
-                class="mdi mdi-blur-linear"></i><span class="hide-menu">Full Width</span></a>
+          <li class="sidebar-item" routerLink="/grid" routerLinkActive="selected">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link">
+              <i class="mdi mdi-blur-linear"></i><span class="hide-menu">Full Width</span></a>
           </li>
-
-          <li class="sidebar-item">
-            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-elements.html"
-              aria-expanded="false"><i class="mdi mdi-pencil"></i><span class="hide-menu">Elements</span></a>
+          <li class="sidebar-item" routerLink="/pages-elements" routerLinkActive="selected">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link">
+              <i class="mdi mdi-pencil"></i><span class="hide-menu">Elements</span></a>
           </li>
         </ul>
       </nav>

@@ -2,24 +2,29 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">Dashboard</h4>
-                <div class="ms-auto text-end">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">
-                                Library
-                            </li>
-                        </ol>
-                    </nav>
-                </div>
+                <h4 class="page-title">Master</h4>
             </div>
         </div>
     </div>
 
     <div class="container-fluid">
         <div class="row">
-           
+            <div  class="col-2">
+                Select City
+            </div>
+            <div  class="col-4">
+                <p-dropdown [options]="cities" [(ngModel)]="selectedCities" optionLabel="name"></p-dropdown>
+            </div>
+            <div  class="col-2">
+                Select City from option
+            </div>
+            <div  class="col-4">
+                <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" optionLabel="name"></p-multiSelect>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 1%;">
+            <hr/>
         </div>
     </div>
 </div>
