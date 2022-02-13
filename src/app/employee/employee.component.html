@@ -2,15 +2,13 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">Employee</h4>
+                <h4 class="page-title">Employee <span style="color: #5c2c28;">({{peopleCount}}) </span></h4>
             </div>
         </div>
     </div>
     <div class="container-fluid">
         <div class="row">
-            <h5>Total People: ({{peopleCount}})</h5>
-            <ag-grid-angular style="width: 100%; height:700px;" class="ag-theme-balham" [columnDefs]="columnDefs"
-                (gridReady)="onGridReady($event)"></ag-grid-angular>
+            <ag-grid-angular style="width: 100%; height:700px;" class="ag-theme-balham" [columnDefs]="columnDefs" (gridReady)="onGridReady($event)"></ag-grid-angular>
         </div>
     </div>
 </div>
