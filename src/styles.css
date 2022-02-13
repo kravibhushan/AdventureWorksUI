@@ -1,2 +1,15 @@
 @import "~ag-grid-community/dist/styles/ag-grid.css";
 @import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+.top-nav {
+    margin: 0px 0px 0px 12px;
+}
+
+.active-component {
+    color: red !important;
+    background: 'white';
+    font-size: large;
+}
+
+.nav-space {
+    padding: 10px 0px 0px 0px;
+}

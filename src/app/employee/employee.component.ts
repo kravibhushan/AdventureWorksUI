@@ -33,6 +33,10 @@ export class EmployeeComponent implements OnInit {
     ];
 
   }
+  
+  loadGrid(){
+
+  }
 
   ngOnInit(): void {
   }
