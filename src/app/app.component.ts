@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
+import { Subscription } from 'rxjs';
+import { MenuToggleService } from './services/menu-toggle.service';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +9,28 @@ import { PrimeNGConfig } from 'primeng/api';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private primengConfig: PrimeNGConfig) { }
+
+  menuState: boolean = true;
+  subscription: Subscription;
+  mainBodyStyle: string = "margin-left: 250px; ";
+
+  constructor(private menuToggleService: MenuToggleService, private primengConfig: PrimeNGConfig) {
+    this.mainBodyStyle = "margin-left: 250px; ";
+    this.subscription = this.menuToggleService.getToggleInfo().subscribe(message => {
+      if (message) {
+        this.mainBodyStyle = "margin-left: 250px; ";
+      } else {
+        this.mainBodyStyle = "margin-left: 70px; ";
+      }
+    });
+  }
 
   ngOnInit() {
     this.primengConfig.ripple = true;
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
 
