@@ -12,10 +12,10 @@ export class AppComponent implements OnInit {
 
   menuState: boolean = true;
   subscription: Subscription;
-  mainBodyStyle: string = "margin-left: 250px; ";
+  mainBodyStyle: string = "";
 
   constructor(private menuToggleService: MenuToggleService, private primengConfig: PrimeNGConfig) {
-    this.mainBodyStyle = "margin-left: 250px; ";
+    // this.mainBodyStyle = "margin-left: 250px; ";
     this.subscription = this.menuToggleService.getToggleInfo().subscribe(message => {
       if (message) {
         this.mainBodyStyle = "margin-left: 250px; ";
