@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { HeaderInterceptorService } from './services/header-interceptor.service';
+import { GridComponent } from './shared/grid/grid.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { HeaderInterceptorService } from './services/header-interceptor.service'
     EmployeeComponent,
     DashboardComponent,
     MasterComponent,
-    NavMainComponent
+    NavMainComponent,
+    GridComponent
   ],
   imports: [
     BrowserModule,

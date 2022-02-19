@@ -1,0 +1,70 @@
+<div class="scroll">
+
+    <h1>{{'Grid'}}</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>email</th>
+                <th>password</th>
+                <th>about</th>
+                <th>token</th>
+                <th>country</th>
+                <th>location</th>
+                <th>lng</th>
+                <th>lat</th>
+                <th>dob</th>
+                <th>gender</th>
+                <th>userType</th>
+                <th>userStatus</th>
+                <th>profilePicture</th>
+                <th>coverPicture</th>
+                <th>enablefollowme</th>
+                <th>sendmenotifications</th>
+                <th>sendTextmessages</th>
+                <th>enabletagging</th>
+                <th>createdAt</th>
+                <th>updatedAt</th>
+                <th>livelng</th>
+                <th>livelat</th>
+                <th>liveLocation</th>
+                <th>creditBalance</th>
+                <th>myCash</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of Employees">
+
+                <td>{{employee.id}}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.password}}</td>
+                <td>{{employee.about}}</td>
+                <td>{{employee.token}}</td>
+                <td>{{employee.country}}</td>
+                <td>{{employee.location}}</td>
+                <td>{{employee.lng}}</td>
+                <td>{{employee.lat}}</td>
+                <td>{{employee.dob}}</td>
+                <td>{{employee.gender}}</td>
+                <td>{{employee.userType}}</td>
+                <td>{{employee.userStatus}}</td>
+                <td>{{employee.profilePicture}}</td>
+                <td>{{employee.coverPicture}}</td>
+                <td>{{employee.enablefollowme}}</td>
+                <td>{{employee.sendmenotifications}}</td>
+                <td>{{employee.sendTextmessages}}</td>
+                <td>{{employee.enabletagging}}</td>
+                <td>{{employee.createdAt}}</td>
+                <td>{{employee.updatedAt}}</td>
+                <td>{{employee.livelng}}</td>
+                <td>{{employee.livelat}}</td>
+                <td>{{employee.liveLocation}}</td>
+                <td>{{employee.creditBalance}}</td>
+                <td>{{employee.myCash}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
