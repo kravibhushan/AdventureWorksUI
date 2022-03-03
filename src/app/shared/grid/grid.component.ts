@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild, Renderer2, Inject, Injectable } from '@angular/core';
 
 @Component({
   selector: 'app-grid',
@@ -7,6 +7,8 @@ import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@a
   styleUrls: ['./grid.component.css']
 })
 export class GridComponent implements OnInit {
+  @ViewChild("upperDiv") upperDiv: ElementRef;
+  @ViewChild("mainDiv") mainDiv: ElementRef;
 
   @Input("JsonData") inputJsonData: any[] = [];
   @Input("Columns") inputcolumns: any[] = [];
@@ -16,7 +18,8 @@ export class GridComponent implements OnInit {
   totalrecord: number = 0;
 
   gridData: any[] = [];
-  constructor(private http: HttpClient) {
+
+  constructor(private http: HttpClient, private renderer: Renderer2) {
     this.gridData = this.inputJsonData;
     this.totalrecord = this.inputJsonData.length;
   }
@@ -24,6 +27,22 @@ export class GridComponent implements OnInit {
   ngOnInit(): void {
     this.loadData();
     this.getKeysFromColumnHeader();
+
+  //   let script = this.renderer.createElement('script');
+  //   script.type = `application/json`;
+  //   script.text = `
+  //   {
+  //     $(function() {
+  //       $("#upperDiv").scroll(function() {
+  //           $("#mainDiv").scrollLeft($("#upperDiv").scrollLeft());
+  //       });
+  //       $("#mainDiv").scroll(function() {
+  //           $("#upperDiv").scrollLeft($("#mainDiv").scrollLeft());
+  //       });
+  //   });
+  //   }
+  // `;
+  //   this.renderer.appendChild(this._document.body, script);
   }
 
   loadData() {
@@ -70,6 +89,14 @@ export class GridComponent implements OnInit {
   // @HostListener('window:scroll', ['$event'])
   scrollHandler(event: any) {
     console.log(event);
+    this.renderer.setStyle(this.upperDiv.nativeElement, 'width', this.mainDiv.nativeElement.offsetWidth);
+    // this.renderer.setProperty(this.upperDiv.nativeElement, 'innerHTML', '<p>Hello World<p>');
+  }
+
+
+
+  ngAfterViewInit() {
+    this.renderer.setStyle(this.upperDiv.nativeElement, 'width', this.mainDiv.nativeElement.offsetWidth);
   }
 }
 

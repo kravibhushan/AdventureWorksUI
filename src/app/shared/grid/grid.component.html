@@ -1,10 +1,12 @@
-<div class="scroll" (scroll)="scrollHandler($event)">
+<div id="upperDiv" style="width: 100%;overflow-x: scroll; text-align: right;" class="scroll" #upperDiv>||</div>
+<div id="mainDiv" class="scroll" (scroll)="scrollHandler($event)" #mainDiv>
     <span>{{inputJsonData.length}}</span>
     <div class="table-responsive-lg">
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
-                    <th *ngFor="let column of inputcolumns" (click)="onShort(column.dataKey,column.columDataType)">{{column.header}}</th>
+                    <th *ngFor="let column of inputcolumns" (click)="onShort(column.dataKey,column.columDataType)">
+                        {{column.header}}</th>
                 </tr>
             </thead>
             <tbody>
