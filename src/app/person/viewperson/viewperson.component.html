@@ -15,6 +15,7 @@
             </div>
 
             <div class="row" style="margin-top: 1%;">
+                <app-grid [JsonData]="jsonData" [Columns]="columnsData" (onRowSelect)="selectedData($event)"></app-grid>
                 <hr />
             </div>
         </div>

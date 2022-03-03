@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-grid',
@@ -13,10 +13,12 @@ export class GridComponent implements OnInit {
 
   @Output() onRowSelect: EventEmitter<any> = new EventEmitter<any>();
   dataKeyArray: string[] = [];
+  totalrecord: number = 0;
 
   gridData: any[] = [];
   constructor(private http: HttpClient) {
     this.gridData = this.inputJsonData;
+    this.totalrecord = this.inputJsonData.length;
   }
 
   ngOnInit(): void {
@@ -63,6 +65,11 @@ export class GridComponent implements OnInit {
   }
   onRowClick(data: any) {
     this.onRowSelect.emit(data);
+  }
+
+  // @HostListener('window:scroll', ['$event'])
+  scrollHandler(event: any) {
+    console.log(event);
   }
 }
 

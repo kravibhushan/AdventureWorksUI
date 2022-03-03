@@ -1,6 +1,5 @@
-<div class="scroll">
-
-    <h1>{{'Grid'}}</h1>
+<div class="scroll" (scroll)="scrollHandler($event)">
+    <span>{{inputJsonData.length}}</span>
     <div class="table-responsive-lg">
         <table class="table table-bordered">
             <thead class="thead-dark">
