@@ -1,5 +1,5 @@
 export class column {
-    header: string;
+    header: string | undefined;
     columDataType: any;
     dataKey: any;
     constructor() {

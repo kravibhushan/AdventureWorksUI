@@ -1,6 +1,8 @@
+import { column } from "./column";
+
 export class columnHeader {
-    columnHdr: any[] = [];
-    constructor(private columns: any[]) {
+    columnHdr: column[] = [];
+    constructor(private columns: column[]) {
         this.columnHdr = columns;
     }
 }

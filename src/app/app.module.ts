@@ -18,6 +18,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { HeaderInterceptorService } from './services/header-interceptor.service';
 import { GridComponent } from './shared/grid/grid.component';
+import { TestgridComponent } from './shared/testgrid/testgrid.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { GridComponent } from './shared/grid/grid.component';
     DashboardComponent,
     MasterComponent,
     NavMainComponent,
-    GridComponent
+    GridComponent,
+    TestgridComponent
   ],
   imports: [
     BrowserModule,
