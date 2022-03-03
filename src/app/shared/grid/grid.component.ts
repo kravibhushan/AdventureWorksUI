@@ -14,8 +14,9 @@ export class GridComponent implements OnInit {
   @Output() onRowSelect: EventEmitter<any> = new EventEmitter<any>();
   dataKeyArray: string[] = [];
 
+  gridData: any[] = [];
   constructor(private http: HttpClient) {
-
+    this.gridData = this.inputJsonData;
   }
 
   ngOnInit(): void {
@@ -26,6 +27,36 @@ export class GridComponent implements OnInit {
   loadData() {
     console.log(this.inputJsonData);
   }
+
+  toggleOrder: boolean = true;
+  onShort(datakey: any, columDataType: any) {
+    this.inputJsonData.sort(this.GetSortOrder(datakey, this.toggleOrder))
+    this.toggleOrder = !this.toggleOrder;
+  }
+  //Comparer Function    
+  GetSortOrder(prop: any, orderby: boolean) {
+    if (orderby) {
+      return function (a: any, b: any) {
+        if (a[prop] > b[prop]) {
+          return 1;
+        } else if (a[prop] < b[prop]) {
+          return -1;
+        }
+        return 0;
+      }
+    } else {
+      return function (a: any, b: any) {
+        if (a[prop] > b[prop]) {
+          return -1;
+        } else if (a[prop] < b[prop]) {
+          return 1;
+        }
+        return 0;
+      }
+    }
+
+  }
+
   getKeysFromColumnHeader() {
     this.dataKeyArray = this.inputcolumns.map(x => x.dataKey)
     console.log(this.dataKeyArray);
