@@ -11,7 +11,10 @@
             </thead>
             <tbody>
                 <tr *ngFor="let employee of inputJsonData" (click)="onRowClick(employee)">
-                    <td *ngFor="let data of dataKeyArray">{{employee[data]}}</td>
+                    <td *ngFor="let data of dataKeyArray" (click)="editCell(employee[data],true)">
+                        {{employee[data]}}
+                        <!-- <input type="text" *ngIf="editCellFlag"> -->
+                    </td>
                 </tr>
             </tbody>
         </table>

@@ -27,22 +27,6 @@ export class GridComponent implements OnInit {
   ngOnInit(): void {
     this.loadData();
     this.getKeysFromColumnHeader();
-
-  //   let script = this.renderer.createElement('script');
-  //   script.type = `application/json`;
-  //   script.text = `
-  //   {
-  //     $(function() {
-  //       $("#upperDiv").scroll(function() {
-  //           $("#mainDiv").scrollLeft($("#upperDiv").scrollLeft());
-  //       });
-  //       $("#mainDiv").scroll(function() {
-  //           $("#upperDiv").scrollLeft($("#mainDiv").scrollLeft());
-  //       });
-  //   });
-  //   }
-  // `;
-  //   this.renderer.appendChild(this._document.body, script);
   }
 
   loadData() {
@@ -90,13 +74,17 @@ export class GridComponent implements OnInit {
   scrollHandler(event: any) {
     console.log(event);
     this.renderer.setStyle(this.upperDiv.nativeElement, 'width', this.mainDiv.nativeElement.offsetWidth);
-    // this.renderer.setProperty(this.upperDiv.nativeElement, 'innerHTML', '<p>Hello World<p>');
   }
 
 
 
   ngAfterViewInit() {
     this.renderer.setStyle(this.upperDiv.nativeElement, 'width', this.mainDiv.nativeElement.offsetWidth);
+  }
+
+  editCellFlag: boolean = false;
+  editCell(data: any, flagEdit: boolean) {
+    // this.editCellFlag = true;
   }
 }
 
