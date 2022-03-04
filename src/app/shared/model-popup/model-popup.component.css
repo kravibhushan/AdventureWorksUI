@@ -8,7 +8,7 @@
 .modal {
     display: none;
     /* Hidden by default */
-    position: fixed;
+    position: absolute;
     /* Stay in place */
     z-index: 1;
     /* Sit on top */
@@ -105,6 +105,8 @@
 
 .showPopUp {
     display: block;
+    z-index: 1000;
+    position: absolute;
 }
 
 .hidePopUp {
