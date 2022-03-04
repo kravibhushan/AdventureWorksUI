@@ -12,6 +12,8 @@ export class ViewpersonComponent implements OnInit {
   columnsData: any[] = [];
   Employees: any[] = EmployeesJson;
   jsonData: any[] = [];
+  gridRowData: any;
+
   constructor() {
     this.columnsData =
       [
@@ -43,14 +45,14 @@ export class ViewpersonComponent implements OnInit {
         , { header: "creditBalance", dataKey: "creditBalance", columDataType: "String" }
         , { header: "myCash", dataKey: "myCash", columDataType: "String" }
       ]
-      this.jsonData = EmployeesJson;
+    this.jsonData = EmployeesJson;
   }
 
   ngOnInit(): void {
   }
 
   selectedData(e: any) {
-    alert(JSON.stringify(e));
+    this.gridRowData = JSON.stringify(e);
   }
 
 }

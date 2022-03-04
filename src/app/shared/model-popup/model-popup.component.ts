@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ContentChild, ElementRef, HostListener, OnInit, Renderer2, TemplateRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-model-popup',
@@ -9,7 +9,9 @@ export class ModelPopupComponent implements OnInit {
 
   @ViewChild("#myModal") myModal: ElementRef;
   showPopUp: string = "";
+  
   togglePopup: boolean = true;
+  
   constructor(private renderer: Renderer2) { 
     this. showPopUp = "";
   }

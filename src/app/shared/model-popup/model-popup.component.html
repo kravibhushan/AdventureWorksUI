@@ -8,14 +8,16 @@
     <div class="modal-content">
         <div class="modal-header">
             <span class="close" (click)="onClose()">&times;</span>
-            <h2>Modal Header</h2>
+            <ng-content select="[Header]"></ng-content>
         </div>
         <div class="modal-body">
-            <p>Some text in the Modal Body</p>
-            <p>Some other text...</p>
+            <ng-content select="[ModelBody]"></ng-content>
+            <div id="buttons">
+                <ng-content select="[Action]"></ng-content>
+            </div>
         </div>
         <div class="modal-footer">
-            <h3>Modal Footer</h3>
+            <ng-content select="[Footer]"></ng-content>
         </div>
     </div>
 </div>
