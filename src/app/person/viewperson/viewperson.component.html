@@ -31,10 +31,6 @@
 
     <div class="page-wrapper">
         <div class="container-fluid">
-            <div class="row">
-                <p>View Person</p>
-            </div>
-
             <div class="row" style="margin-top: 1%;">
                 <app-grid [JsonData]="jsonData" [Columns]="columnsData" (onRowSelect)="selectedData($event)"></app-grid>
                 <hr />

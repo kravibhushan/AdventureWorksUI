@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// import EmployeesJson from '../../s/data/EmployeeData.json';
-import EmployeesJson from '../../shared/data/EmployeeData.json';
+import { EmployeeService } from 'src/app/services/employee.service';
+
+
 
 @Component({
   selector: 'app-viewperson',
@@ -10,45 +11,30 @@ import EmployeesJson from '../../shared/data/EmployeeData.json';
 export class ViewpersonComponent implements OnInit {
 
   columnsData: any[] = [];
-  Employees: any[] = EmployeesJson;
   jsonData: any[] = [];
   gridRowData: any;
 
-  constructor() {
+  constructor(private employeeServ: EmployeeService) {
     this.columnsData =
       [
-        { header: "id", dataKey: "id", columDataType: "String" }
-        , { header: "name", dataKey: "name", columDataType: "String" }
-        , { header: "email", dataKey: "email", columDataType: "String" }
-        , { header: "password", dataKey: "password", columDataType: "String" }
-        , { header: "about", dataKey: "about", columDataType: "String" }
-        , { header: "token", dataKey: "token", columDataType: "String" }
-        , { header: "country", dataKey: "country", columDataType: "String" }
-        , { header: "location", dataKey: "location", columDataType: "String" }
-        , { header: "lng", dataKey: "lng", columDataType: "String" }
-        , { header: "lat", dataKey: "lat", columDataType: "String" }
-        , { header: "dob", dataKey: "dob", columDataType: "String" }
-        , { header: "gender", dataKey: "gender", columDataType: "String" }
-        , { header: "userType", dataKey: "userType", columDataType: "String" }
-        , { header: "userStatus", dataKey: "userStatus", columDataType: "String" }
-        , { header: "profilePicture", dataKey: "profilePicture", columDataType: "String" }
-        , { header: "coverPicture", dataKey: "coverPicture", columDataType: "String" }
-        , { header: "enablefollowme", dataKey: "enablefollowme", columDataType: "String" }
-        , { header: "sendmenotifications", dataKey: "sendmenotifications", columDataType: "String" }
-        , { header: "sendTextmessages", dataKey: "sendTextmessages", columDataType: "String" }
-        , { header: "enabletagging", dataKey: "enabletagging", columDataType: "String" }
-        , { header: "createdAt", dataKey: "createdAt", columDataType: "String" }
-        , { header: "updatedAt", dataKey: "updatedAt", columDataType: "String" }
-        , { header: "livelng", dataKey: "livelng", columDataType: "String" }
-        , { header: "livelat", dataKey: "livelat", columDataType: "String" }
-        , { header: "liveLocation", dataKey: "liveLocation", columDataType: "String" }
-        , { header: "creditBalance", dataKey: "creditBalance", columDataType: "String" }
-        , { header: "myCash", dataKey: "myCash", columDataType: "String" }
+        { header: 'Employee Id', dataKey: 'businessEntityId', sortable: true },
+        { header: 'Title', dataKey: 'title', sortable: true },
+        { header: 'First Name', dataKey: 'firstName', sortable: true },
+        { header: 'Middle Name', dataKey: 'middleName', sortable: true },
+        { header: 'Last Name', dataKey: 'lastName', sortable: true },
+        { header: 'Job Title', dataKey: 'jobTitle', sortable: true },
+        { header: 'Phone Number', dataKey: 'phoneNumber', sortable: true },
+        { header: 'Email', dataKey: 'emailAddress', sortable: true },
+        { header: 'Postal Code', dataKey: 'postalCode', sortable: true },
+        { header: 'City', dataKey: 'city', sortable: true },
+        { header: 'Country', dataKey: 'countryRegionName', sortable: true }
       ]
-    this.jsonData = EmployeesJson;
   }
 
   ngOnInit(): void {
+    this.employeeServ.gtAllEmployee().subscribe(data => {
+      this.jsonData = data;
+    });
   }
 
   selectedData(e: any) {

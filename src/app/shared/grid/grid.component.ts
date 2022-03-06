@@ -10,6 +10,9 @@ export class GridComponent implements OnInit {
   @ViewChild("upperDiv") upperDiv: ElementRef;
   @ViewChild("mainDiv") mainDiv: ElementRef;
 
+  @ViewChild("thData") private thData: ElementRef<HTMLElement>;
+  @ViewChild("tbody") tbody: ElementRef<HTMLElement>;
+
   @Input("JsonData") inputJsonData: any[] = [];
   @Input("Columns") inputcolumns: any[] = [];
 
@@ -30,7 +33,6 @@ export class GridComponent implements OnInit {
   }
 
   loadData() {
-    console.log(this.inputJsonData);
   }
 
   toggleOrder: boolean = true;
@@ -64,7 +66,6 @@ export class GridComponent implements OnInit {
 
   getKeysFromColumnHeader() {
     this.dataKeyArray = this.inputcolumns.map(x => x.dataKey)
-    console.log(this.dataKeyArray);
   }
   onRowClick(data: any) {
     this.onRowSelect.emit(data);
@@ -72,19 +73,54 @@ export class GridComponent implements OnInit {
 
   // @HostListener('window:scroll', ['$event'])
   scrollHandler(event: any) {
-    console.log(event);
     this.renderer.setStyle(this.upperDiv.nativeElement, 'width', this.mainDiv.nativeElement.offsetWidth);
   }
 
 
 
   ngAfterViewInit() {
-    this.renderer.setStyle(this.upperDiv.nativeElement, 'width', this.mainDiv.nativeElement.offsetWidth);
+    console.log("Tr data analysis");
+    this.getChildren();
+    // this.renderer.setStyle(this.upperDiv.nativeElement, 'width', this.mainDiv.nativeElement.offsetWidth);
   }
 
   editCellFlag: boolean = false;
   editCell(data: any, flagEdit: boolean) {
     // this.editCellFlag = true;
+  }
+
+
+  @HostListener('window:resize', [])
+  onResize() {
+    this.setDivHeight();
+  }
+
+  ngAfterViewChecked() {
+    this.setDivHeight();
+  }
+
+  setDivHeight() {
+    console.log(this.thData);
+    // let height = `${this.tr.nativeElement.offsetHeight}px`;
+    // this.renderer.setStyle(this.th.nativeElement, 'height', height);
+  }
+
+
+
+  public getChildren() {
+
+    const tbodyElement = this.tbody.nativeElement;
+    const firstTrChild = tbodyElement.children;
+    const td = firstTrChild[0].querySelector("td");
+    console.log(firstTrChild);
+    console.log(td);
+    
+    console.log('-------------');
+    const parentElement = this.thData.nativeElement;
+    const firstChild = parentElement.children;
+    const thead = parentElement.querySelector("thead");
+    console.log(firstChild);
+    console.log(thead);
   }
 }
 
