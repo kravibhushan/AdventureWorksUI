@@ -18,3 +18,17 @@ table tbody {
     overflow: auto;
     height: 500px;
 }
+
+.table thead tr td {
+    background-color: #000;
+    color: #fff;
+}
+
+.table tr:nth-child(even) {
+    background-color: #c9f3f1;
+}
+
+.table tr:nth-child(odd) {
+    background-color: #000;
+    color: #fff;
+}

@@ -1,7 +1,7 @@
 <div id="mainDiv" class="scroll" (scroll)="scrollHandler($event)" #mainDiv>
     <span>{{inputJsonData.length}}</span>
     <div class="table-responsive-lg">
-        <table class="table table-bordered">
+        <table class="table ">
             <thead class="thead-dark">
                 <tr #thData>
                     <th *ngFor="let column of inputcolumns" (click)="onShort(column.dataKey,column.columDataType)">
@@ -9,9 +9,9 @@
                 </tr>
             </thead>
             <tbody #tbody>
-                <tr *ngFor="let employee of inputJsonData" (click)="onRowClick(employee)">
-                    <td *ngFor="let data of dataKeyArray" (click)="editCell(employee[data],true)">
-                        {{employee[data]}}
+                <tr *ngFor="let jsonObject of inputJsonData" (click)="onRowClick(jsonObject)">
+                    <td *ngFor="let data of dataKeyArray" (click)="editCell(jsonObject[data],true)">
+                        {{jsonObject[data]}}
                         <!-- <input type="text" *ngIf="editCellFlag"> -->
                     </td>
                 </tr>
