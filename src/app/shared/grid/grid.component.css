@@ -1,34 +1,27 @@
-div.scroll {
-    margin: 4px, 4px;
-    padding: 4px;
-    /* background-color: dimgray; */
-    /* width: 100%;
-    height: 500px;
-    overflow-x: auto;
-    overflow-y: auto; */
-    white-space: nowrap;
-}
-
-table tbody,
-table thead {
-    display: block;
-}
-
-table tbody {
+.scroll {
     overflow: auto;
     height: 500px;
 }
 
-.table thead tr td {
-    background-color: #000;
-    color: #fff;
+.scroll thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
-.table tr:nth-child(even) {
-    background-color: #c9f3f1;
+
+/* Just common table stuff. Really. */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
 }
 
-.table tr:nth-child(odd) {
-    background-color: #000;
-    color: #fff;
+th,
+td {
+    padding: 8px 16px;
+}
+
+th {
+    background: #eee;
 }
