@@ -13,7 +13,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let jsonObject of inputJsonData" (click)="onRowClick(jsonObject)">
-                    <td *ngFor="let data of dataKeyArray" (click)="editCell(jsonObject[data],true)">
+                    <td *ngFor="let data of dataKeyArray" (click)="editCell(jsonObject[data],true)" (dblclick)="cellClicked(jsonObject[data])" title={{jsonObject[data]}}>
                         {{jsonObject[data]}}
                         <!-- <input type="text" *ngIf="editCellFlag"> -->
                     </td>

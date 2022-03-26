@@ -74,6 +74,9 @@ export class GridComponent implements OnInit {
   editCellFlag: boolean = false;
   editCell(data: any, flagEdit: boolean) {
   }
-  
+
+  cellClicked(data:any){
+  alert(data);
+  }
 }
 
