@@ -1,3 +1,7 @@
+.count {
+    float: right;
+}
+
 .scroll {
     overflow: auto;
     height: 500px;

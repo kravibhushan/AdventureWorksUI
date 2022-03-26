@@ -1,14 +1,17 @@
-<span>{{inputJsonData.length}}</span>
-<div id="mainDiv" class="scroll" (scroll)="scrollHandler($event)" #mainDiv>
+<div class="count">
+    <span>{{inputJsonData.length}}</span>
+</div>
+<hr>
+<div id="mainDiv" class="scroll">
     <div class="table-responsive-lg">
         <table class="table ">
-            <thead class="thead-dark">
-                <tr #thData>
+            <thead>
+                <tr>
                     <th *ngFor="let column of inputcolumns" (click)="onShort(column.dataKey,column.columDataType)">
                         {{column.header}}</th>
                 </tr>
             </thead>
-            <tbody #tbody>
+            <tbody>
                 <tr *ngFor="let jsonObject of inputJsonData" (click)="onRowClick(jsonObject)">
                     <td *ngFor="let data of dataKeyArray" (click)="editCell(jsonObject[data],true)">
                         {{jsonObject[data]}}
