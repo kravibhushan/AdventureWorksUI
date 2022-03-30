@@ -22,17 +22,16 @@ export class ViewpersonComponent implements OnInit {
         { header: 'First Name', dataKey: 'firstName', sortable: true },
         { header: 'Middle Name', dataKey: 'middleName', sortable: true },
         { header: 'Last Name', dataKey: 'lastName', sortable: true },
-        { header: 'Job Title', dataKey: 'jobTitle', sortable: true },
+        { header: 'Email Promotion', dataKey: 'emailPromotion', sortable: true },
         { header: 'Phone Number', dataKey: 'phoneNumber', sortable: true },
         { header: 'Email', dataKey: 'emailAddress', sortable: true },
-        { header: 'Postal Code', dataKey: 'postalCode', sortable: true },
-        { header: 'City', dataKey: 'city', sortable: true },
-        { header: 'Country', dataKey: 'countryRegionName', sortable: true }
+        { header: 'phoneNumberType', dataKey: 'phoneNumberType', sortable: true },
+        
       ]
   }
 
   ngOnInit(): void {
-    this.employeeServ.getAllEmployee().subscribe(data => {
+    this.employeeServ.getAllPerson().subscribe(data => {
       this.jsonData = data;
     });
   }
