@@ -32,7 +32,7 @@ export class ViewpersonComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.employeeServ.gtAllEmployee().subscribe(data => {
+    this.employeeServ.getAllEmployee().subscribe(data => {
       this.jsonData = data;
     });
   }

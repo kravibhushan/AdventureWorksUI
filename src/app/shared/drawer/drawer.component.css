@@ -18,7 +18,3 @@
     -webkit-overflow-scrolling: touch;
     box-shadow: 0 2px 6px #777;
 }
-
-.drawer.is-visible .drawer__overlay {
-    opacity: 0.5;
-}

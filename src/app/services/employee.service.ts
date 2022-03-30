@@ -10,8 +10,11 @@ export class EmployeeService {
   constructor(private http: HttpClient) {
   }
   
-  gtAllEmployee(): Observable<any> {
-    return this.http.get<any>("http://local.adventureworks.api/Person");
+  getAllEmployee(): Observable<any> {
+    return this.http.get<any>("http://local.adventureworks.api/Person/v1/GetPerson");
+  }
+  getAllPerson(): Observable<any> {
+    return this.http.get<any>("http://local.adventureworks.api/Person/v1/GetAllPerson");
   }
 
 }
