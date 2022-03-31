@@ -2,9 +2,9 @@
     <span>{{inputJsonData.length}}</span>
 </div>
 <hr>
-<div id="mainDiv" class="scroll">
+<div id="mainDiv" class="scroll" (scroll)="onScroll($event)">
     <div class="table-responsive-lg">
-        <table class="table ">
+        <table class="table">
             <thead>
                 <tr>
                     <th *ngFor="let column of inputcolumns" (click)="onShort(column.dataKey,column.columDataType)">

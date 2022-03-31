@@ -78,5 +78,9 @@ export class GridComponent implements OnInit {
   cellClicked(data:any){
   alert(data);
   }
+  
+  onScroll(e: any) {
+    console.log(e.target.scrollLeft, e.target.scrollTop);
+  }
 }
 

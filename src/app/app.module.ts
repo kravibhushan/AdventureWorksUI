@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { HeaderInterceptorService } from './services/header-interceptor.service';
+import { PlaygroundComponent } from './practice/playground/playground.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { HeaderInterceptorService } from './services/header-interceptor.service'
     DashboardComponent,
     MasterComponent,
     NavMainComponent,
+    PlaygroundComponent,
   ],
   imports: [
     BrowserModule,
