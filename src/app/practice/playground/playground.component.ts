@@ -18,7 +18,5 @@ export class PlaygroundComponent implements OnInit {
     if ((e.target.scrollHeight - e.target.scrollTop) == 150) {
       console.log("Half reached");
     }
-
   }
-
 }

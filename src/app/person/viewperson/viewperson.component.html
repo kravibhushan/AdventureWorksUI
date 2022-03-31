@@ -32,7 +32,7 @@
     <div class="page-wrapper">
         <div class="container-fluid">
             <div class="row" style="margin-top: 1%;">
-                <app-grid [JsonData]="jsonData" [Columns]="columnsData" (onRowSelect)="selectedData($event)"></app-grid>
+                <app-grid [JsonData]="jsonData" [Columns]="columnsData" (onRowSelect)="selectedData($event)" (scrollAboutToEnd)="handlescrollAboutToEnd($event)"></app-grid>
                 <hr />
             </div>
         </div>

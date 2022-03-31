@@ -26,7 +26,7 @@ export class ViewpersonComponent implements OnInit {
         { header: 'Phone Number', dataKey: 'phoneNumber', sortable: true },
         { header: 'Email', dataKey: 'emailAddress', sortable: true },
         { header: 'phoneNumberType', dataKey: 'phoneNumberType', sortable: true },
-        
+
       ]
   }
 
@@ -40,4 +40,9 @@ export class ViewpersonComponent implements OnInit {
     this.gridRowData = JSON.stringify(e);
   }
 
+  handlescrollAboutToEnd(e: any) {
+    // this.employeeServ.getAllPerson().subscribe(data => {
+    //   this.jsonData.push(data);
+    // });
+  }
 }

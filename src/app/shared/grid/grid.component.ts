@@ -7,12 +7,14 @@ import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Outpu
   styleUrls: ['./grid.component.css']
 })
 export class GridComponent implements OnInit {
- 
+
 
   @Input("JsonData") inputJsonData: any[] = [];
   @Input("Columns") inputcolumns: any[] = [];
 
   @Output() onRowSelect: EventEmitter<any> = new EventEmitter<any>();
+  @Output() scrollAboutToEnd: EventEmitter<any> = new EventEmitter<any>();
+
   dataKeyArray: string[] = [];
   totalrecord: number = 0;
 
@@ -75,12 +77,15 @@ export class GridComponent implements OnInit {
   editCell(data: any, flagEdit: boolean) {
   }
 
-  cellClicked(data:any){
-  alert(data);
+  cellClicked(data: any) {
+    alert(data);
   }
-  
+
   onScroll(e: any) {
-    console.log(e.target.scrollLeft, e.target.scrollTop);
+    if ((e.target.scrollHeight - e.target.scrollTop) / 100 <= 20) {
+      console.log("Half reached");
+      this.scrollAboutToEnd.emit((e.target.scrollHeight - e.target.scrollTop) / 100);
+    }
   }
 }
 
