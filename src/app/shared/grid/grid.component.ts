@@ -89,7 +89,6 @@ export class GridComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
   }
 }
 
