@@ -1,0 +1,23 @@
+<!-- Trigger/Open The Modal -->
+<button id="myBtn" (click)="onBtnClick()">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal" [classList]="showPopUp" #myModal>
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close" (click)="onClose()">&times;</span>
+            <ng-content select="[Header]"></ng-content>
+        </div>
+        <div class="modal-body">
+            <ng-content select="[ModelBody]"></ng-content>
+            <div id="buttons">
+                <ng-content select="[Action]"></ng-content>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <ng-content select="[Footer]"></ng-content>
+        </div>
+    </div>
+</div>

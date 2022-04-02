@@ -1,0 +1,24 @@
+<div class="count">
+    <span>{{inputJsonData.length}}</span>
+</div>
+<hr>
+<div id="mainDiv" class="scroll" (scroll)="onScroll($event)">
+    <div class="table-responsive-lg">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th *ngFor="let column of inputcolumns" (click)="onShort(column.dataKey,column.columDataType)">
+                        {{column.header}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let jsonObject of inputJsonData" (click)="onRowClick(jsonObject)">
+                    <td *ngFor="let data of dataKeyArray" (click)="editCell(jsonObject[data],true)" (dblclick)="cellClicked(jsonObject[data])" title={{jsonObject[data]}}>
+                        {{jsonObject[data]}}
+                        <!-- <input type="text" *ngIf="editCellFlag"> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

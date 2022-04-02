@@ -1,13 +1,41 @@
-<app-nav-person></app-nav-person>
+<div>
+    <app-model-popup>
+        <p ModelBody>
+            {{gridRowData}}
+        </p>
+
+        <p Action>
+            <button id="approve">Approve</button>
+            <button id="approve">Reject</button>
+        </p>
+
+        <p Header>
+            From View Person Page
+        </p>
+        <p Footer>
+            Footer
+        </p>
+
+    </app-model-popup>
+</div>
 
 <div class="page-wrapper">
-    <div class="container-fluid">
+    <div class="page-breadcrumb">
         <div class="row">
-            <p>View Person</p>
+            <div class="col-12 d-flex no-block align-items-center">
+                <app-nav-person></app-nav-person>
+            </div>
         </div>
+    </div>
 
-        <div class="row" style="margin-top: 1%;">
-            <hr />
+
+    <div class="page-wrapper">
+        <div class="container-fluid">
+            <div class="row" style="margin-top: 1%;">
+                <app-grid [JsonData]="jsonData" [Columns]="columnsData" (onRowSelect)="selectedData($event)" (scrollEvent)="handleScrollEvent($event)"></app-grid>
+                <hr />
+            </div>
         </div>
     </div>
 </div>
+<app-drawer></app-drawer>

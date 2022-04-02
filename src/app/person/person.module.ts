@@ -5,6 +5,7 @@ import { ViewpersonComponent } from './viewperson/viewperson.component';
 import { CreatepersonComponent } from './createperson/createperson.component';
 import { PersonRoutingModule } from './person-routing.module';
 import { PeopleComponent } from './people/people.component';
+import { SharedGridModule } from '../shared/sharedgrid.module';
 
 
 
@@ -17,7 +18,8 @@ import { PeopleComponent } from './people/people.component';
   ],
   imports: [
     CommonModule,
-    PersonRoutingModule
+    PersonRoutingModule,
+    SharedGridModule
   ]
 })
 export class PersonModule { }

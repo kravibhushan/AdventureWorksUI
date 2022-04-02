@@ -40,7 +40,7 @@ export class EmployeeComponent implements OnInit {
   onGridReady(params: any) {
     this.gridApi = params.api;
     this.gridColumnApi = params.ColumnApi;
-    this.employeeServ.gtAllEmployee().subscribe(data => {
+    this.employeeServ.getAllEmployee().subscribe(data => {
       this.peopleCount = (data as any[]).length;
       params.api.setRowData(data);
     });
