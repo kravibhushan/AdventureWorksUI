@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild, Renderer2, Inject, Injectable } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild, Renderer2, Inject, Injectable, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-grid',
@@ -13,7 +13,7 @@ export class GridComponent implements OnInit {
   @Input("Columns") inputcolumns: any[] = [];
 
   @Output() onRowSelect: EventEmitter<any> = new EventEmitter<any>();
-  @Output() scrollAboutToEnd: EventEmitter<any> = new EventEmitter<any>();
+  @Output() scrollEvent: EventEmitter<number> = new EventEmitter<number>();
 
   dataKeyArray: string[] = [];
   totalrecord: number = 0;
@@ -70,7 +70,7 @@ export class GridComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    console.log("Tr data analysis");
+    
   }
 
   editCellFlag: boolean = false;
@@ -82,10 +82,14 @@ export class GridComponent implements OnInit {
   }
 
   onScroll(e: any) {
-    if ((e.target.scrollHeight - e.target.scrollTop) / 100 <= 20) {
-      console.log("Half reached");
-      this.scrollAboutToEnd.emit((e.target.scrollHeight - e.target.scrollTop) / 100);
-    }
+    var divMaxScroll = e.target.scrollHeight;
+    var currentScroll = e.target.scrollTop + e.target.clientHeight;
+    var scrolled = (currentScroll / divMaxScroll) * 100;
+    this.scrollEvent.emit(scrolled);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
   }
 }
 

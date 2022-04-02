@@ -12,7 +12,10 @@ export class ViewpersonComponent implements OnInit {
 
   columnsData: any[] = [];
   jsonData: any[] = [];
+  responseData: any[] = [];
   gridRowData: any;
+  currentPage: number = 0;
+  TotalRecords: number = 0;
 
   constructor(private employeeServ: EmployeeService) {
     this.columnsData =
@@ -31,8 +34,10 @@ export class ViewpersonComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.employeeServ.getAllPerson().subscribe(data => {
-      this.jsonData = data;
+    this.employeeServ.getAllPersonWithPaging(this.currentPage, 50).subscribe(data => {
+      this.responseData = data.body.personInfoList;
+      this.TotalRecords = data.body.totalRecords;
+      this.jsonData = this.responseData;
     });
   }
 
@@ -40,9 +45,16 @@ export class ViewpersonComponent implements OnInit {
     this.gridRowData = JSON.stringify(e);
   }
 
-  handlescrollAboutToEnd(e: any) {
-    // this.employeeServ.getAllPerson().subscribe(data => {
-    //   this.jsonData.push(data);
-    // });
+  handleScrollEvent(scrollPercentage: number) {
+    if (Math.round(scrollPercentage) >= 70) {
+      if (this.TotalRecords >= this.currentPage * 50) {
+        this.currentPage = this.currentPage + 1;
+        this.employeeServ.getAllPersonWithPaging(this.currentPage, 50).subscribe(data => {
+          let localresponse = data.body.personInfoList
+          localresponse.forEach((elemenet: any) => { this.jsonData.push(elemenet) });
+          this.TotalRecords = data.body.totalRecords;
+        });
+      }
+    }
   }
 }

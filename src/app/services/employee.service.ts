@@ -14,10 +14,20 @@ export class EmployeeService {
   }
 
   getAllEmployee(): Observable<any> {
-    return this.http.get<any>(this.apiUrl+"Person/v1/GetPerson");
+    return this.http.get<any>(this.apiUrl + "Person/v1/GetPerson");
   }
+  
   getAllPerson(): Observable<any> {
-    return this.http.get<any>(this.apiUrl+"Person/v1/GetAllPerson");
+    return this.http.get<any>(this.apiUrl + "Person/v1/GetAllPerson");
   }
 
+  getAllPersonWithPaging(currepage: number, pageSize: number): Observable<any> {
+    return this.http.get<any>(this.apiUrl + "Person/v1/GetAllPersonWithPaging", {
+      params: {
+        currentPage: currepage,
+        pageSize: pageSize
+      },
+      observe: 'response'
+    });
+  }
 }
