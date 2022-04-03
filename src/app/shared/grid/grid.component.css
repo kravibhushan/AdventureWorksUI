@@ -10,7 +10,7 @@
     color: black;
 }
 
-.scroll thead th {
+.scroll thead {
     position: sticky;
     top: 0;
     z-index: 1;

@@ -47,6 +47,5 @@ export class TestgridComponent implements OnInit {
   ngOnInit(): void {
   }
   selectedData(e: any) {
-    console.log(JSON.stringify(e));
   }
 }

@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild, Renderer2, Inject, Injectable, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild, Renderer2, Inject, Injectable, SimpleChanges, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.css']
 })
-export class GridComponent implements OnInit {
+export class GridComponent implements OnInit, AfterViewInit {
 
+  dataListName: string = "";
+  dataListvalues: any[] = [] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   @Input("JsonData") inputJsonData: any[] = [];
   @Input("Columns") inputcolumns: any[] = [];
@@ -16,11 +18,12 @@ export class GridComponent implements OnInit {
   @Output() scrollEvent: EventEmitter<number> = new EventEmitter<number>();
 
   dataKeyArray: string[] = [];
+  filterData: any[] = [];
   totalrecord: number = 0;
-
+  isAllChecked: boolean = false;
   gridData: any[] = [];
 
-  constructor(private http: HttpClient, private renderer: Renderer2) {
+  constructor(private http: HttpClient, private renderer: Renderer2, private ElByClassName: ElementRef) {
     this.gridData = this.inputJsonData;
     this.totalrecord = this.inputJsonData.length;
   }
@@ -28,6 +31,14 @@ export class GridComponent implements OnInit {
   ngOnInit(): void {
     this.loadData();
     this.getKeysFromColumnHeader();
+    console.log(this.dataKeyArray);
+
+  }
+  ngAfterViewInit() {
+    const checkBoxElement: any = (<HTMLElement>this.ElByClassName.nativeElement).querySelector('.rowChecked');
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
   }
 
   loadData() {
@@ -38,6 +49,7 @@ export class GridComponent implements OnInit {
     this.inputJsonData.sort(this.GetSortOrder(datakey, this.toggleOrder))
     this.toggleOrder = !this.toggleOrder;
   }
+
   //Comparer Function    
   GetSortOrder(prop: any, orderby: boolean) {
     if (orderby) {
@@ -59,19 +71,28 @@ export class GridComponent implements OnInit {
         return 0;
       }
     }
-
   }
 
   getKeysFromColumnHeader() {
     this.dataKeyArray = this.inputcolumns.map(x => x.dataKey)
   }
+
+  counter: number = 0;
+  getIndividualDataKey(dataKey: any): any[] {
+    console.log(this.counter);
+    let localArrayMap: any[] = [];
+    this.inputJsonData.forEach((x) => {
+      return localArrayMap.push(x[dataKey]);
+    });
+    this.counter++;
+    return localArrayMap;
+  }
+
   onRowClick(data: any) {
     this.onRowSelect.emit(data);
   }
 
-  ngAfterViewInit() {
-    
-  }
+
 
   editCellFlag: boolean = false;
   editCell(data: any, flagEdit: boolean) {
@@ -88,7 +109,14 @@ export class GridComponent implements OnInit {
     this.scrollEvent.emit(scrolled);
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+
+  checked(e: any) {
+    if (e.target.checked) {
+      this.isAllChecked = true;
+    }
+    else {
+      this.isAllChecked = false;
+    }
   }
 }
 

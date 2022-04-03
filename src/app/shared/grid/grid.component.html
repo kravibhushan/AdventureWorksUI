@@ -1,18 +1,38 @@
+<div style="display: inline;">
+    <button>Action1</button>
+    <span style="margin-left: 10px;"></span>
+    <button>Action2</button>
+</div>
 <div class="count">
     <span>{{inputJsonData.length}}</span>
 </div>
 <hr>
+
 <div id="mainDiv" class="scroll" (scroll)="onScroll($event)">
     <div class="table-responsive-lg">
         <table class="table">
             <thead>
                 <tr>
+                    <th>
+                        <input id="masterCheckBox" type="checkbox" (change)="checked($event)">
+                    </th>
                     <th *ngFor="let column of inputcolumns" (click)="onShort(column.dataKey,column.columDataType)">
                         {{column.header}}</th>
+                </tr>
+                <tr>
+                    <th>
+                    </th>
+                    <th *ngFor="let key of dataKeyArray">
+                        <app-datalist [listName]="dataListName" [dataValues]="getIndividualDataKey(key)">
+                        </app-datalist>
+                    </th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let jsonObject of inputJsonData" (click)="onRowClick(jsonObject)">
+                    <td>
+                        <input type="checkbox" class="rowChecked" value="jsonObject" [checked]="isAllChecked">
+                    </td>
                     <td *ngFor="let data of dataKeyArray" (click)="editCell(jsonObject[data],true)" (dblclick)="cellClicked(jsonObject[data])" title={{jsonObject[data]}}>
                         {{jsonObject[data]}}
                         <!-- <input type="text" *ngIf="editCellFlag"> -->
@@ -21,4 +41,9 @@
             </tbody>
         </table>
     </div>
+</div>
+<div style="display: inline;">
+    <button>Action1</button>
+    <span style="margin-left: 10px;"></span>
+    <button>Action2</button>
 </div>

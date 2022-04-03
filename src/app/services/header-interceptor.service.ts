@@ -25,7 +25,6 @@ export class HeaderInterceptorService implements HttpInterceptor {
         'Authorization': 'Bearer ' + token
       })
     });
-    console.log('Intercepted HTTP call', authReq);
     return next.handle(authReq);
   }
 
